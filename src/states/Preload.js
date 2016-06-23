@@ -10,25 +10,32 @@ class Preload extends Phaser.State {
         //	Load the rest of the assets our game needs.
 		this.load.image('titleLogo', 'assets/title-logo.png')
 		this.load.image('pressSpace', 'assets/press-space.png')
-		this.load.image('deepfield', 'assets/telescope-finder/deepfield.jpg')
-        this.load.image('gal1', 'assets/telescope-finder/gal1.png')
-        this.load.image('gal2', 'assets/telescope-finder/gal2.png')
-        this.load.image('gal3', 'assets/telescope-finder/gal3.png')
-        this.load.image('gal4', 'assets/telescope-finder/gal4.png')
-        this.load.image('gal5', 'assets/telescope-finder/gal5.png')
-        this.load.image('gal6', 'assets/telescope-finder/gal6.png')
+		this.load.image('deepfield', 'assets/find-galaxies/deepfield.jpg')
+        this.load.image('gal1', 'assets/find-galaxies/gal1.png')
+        this.load.image('gal2', 'assets/find-galaxies/gal2.png')
+        this.load.image('gal3', 'assets/find-galaxies/gal3.png')
+        this.load.image('gal4', 'assets/find-galaxies/gal4.png')
+        this.load.image('gal5', 'assets/find-galaxies/gal5.png')
+        this.load.image('gal6', 'assets/find-galaxies/gal6.png')
+		this.load.image('nope', 'assets/find-galaxies/nope.png')
 		this.load.image('dome', 'assets/close-the-dome/background.jpg')
 		this.load.image('dome-closed', 'assets/close-the-dome/closed.jpg')
 		this.load.image('umbrella', 'assets/close-the-dome/umbrella.png')
+		this.load.image('cloud', 'assets/close-the-dome/cloud.png')
+		this.load.image('raindrop', 'assets/close-the-dome/raindrop.png')
 		this.load.image('macbook', 'assets/write-a-proposal/macbook-pro.jpg')
-        this.load.audio('titleMusic', ['assets/audio/chibi-ninja.mp3'])
-		this.load.audio('buzzer', ['assets/audio/buzzer.mp3'])
+		this.load.audio('buzzer', 'assets/audio/buzzer.mp3')
+		this.load.audio('titleMusic', 'assets/audio/chibi-ninja.mp3')
 	}
 
 	create() {
         //	Once the load has finished we disable the crop
 		this.preloadBar.cropEnabled = false
-        this.state.start('MainMenu')
+        this.toMenu()
+	}
+
+	toMenu() {
+		this.state.start('MainMenu')
 	}
 
 }

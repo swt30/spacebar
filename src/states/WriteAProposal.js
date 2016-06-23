@@ -7,19 +7,17 @@ class WriteAProposal extends Phaser.State {
 
         // the text of the proposal
         this.proposalText = [
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
-            "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
-            "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo",
-            "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse",
-            "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat",
-            "non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "Multiple stellar populations at the centimetre-per-second level",
+            "",
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         ]
 
         // load in first line of text
         this.line = []
         this.wordIndex = 0
         this.lineIndex = 0
-        this.text = this.add.text(160, 140, '', { font: "14px Arial", fill: "#ffffff" })
+        this.text = this.add.text(160, 140, '',
+            { font: "14px Arial", fill: "#ffffff", wordWrap: true, wordWrapWidth: 470 })
         this.nextLine()
 
         // register spacebar presses
@@ -29,7 +27,7 @@ class WriteAProposal extends Phaser.State {
 
     nextLine() {
         if (this.lineIndex === this.proposalText.length) {
-            this.wellDoneText()
+            return
         }
         this.line = this.proposalText[this.lineIndex].split(' ')
         this.wordIndex = 0
@@ -37,6 +35,14 @@ class WriteAProposal extends Phaser.State {
     }
 
     nextWord() {
+        if (this.done == true) {
+            return
+        }
+        if (this.wordIndex === this.line.length && this.lineIndex === this.proposalText.length) {
+            this.wellDoneText()
+            this.done = true
+            return
+        }
         this.text.text = this.text.text.concat(this.line[this.wordIndex] + ' ')
         this.wordIndex++
         if (this.wordIndex === this.line.length) {

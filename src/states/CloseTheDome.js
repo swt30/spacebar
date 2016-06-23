@@ -1,4 +1,5 @@
 import BigMessage from 'objects/BigMessage'
+import Cloud from 'objects/Cloud'
 
 class CloseTheDome extends Phaser.State {
     create() {
@@ -25,6 +26,22 @@ class CloseTheDome extends Phaser.State {
         let spacekey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
         spacekey.onDown.add(this.closeUp, this)
         spacekey.onUp.add(this.openUp, this)
+
+        // start adding clouds
+        this.addCloud()
+
+        // prepare for raindrops
+        this.physics.startSystem(Phaser.Physics.ARCADE)
+    }
+
+    addCloud() {
+        let cloudHeight = this.rnd.between(0, 150)
+        let cloudSize = this.rnd.realInRange(0.5, 1.5)
+        let cloudSpeed = this.rnd.between(1, 5)
+        new Cloud(this.game, -200, cloudHeight, cloudSize, cloudSpeed)
+
+        let nextCloud = this.rnd.between(1000, 4000)
+        this.time.events.add(nextCloud, this.addCloud, this)
     }
 
     introText() {

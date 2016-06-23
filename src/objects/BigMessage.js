@@ -5,7 +5,7 @@ class BigMessage extends Phaser.Text {
         this.anchor.set(0.5)
 
         this.addTween()
-        this.game.stage.addChild(this)
+        game.stage.addChild(this)
     }
 
     addTween() {
