@@ -12,21 +12,14 @@ class Cloud extends Phaser.Sprite {
 
     update() {
         this.x = this.x + this._speed
-        this.rain()
-
-        if (this.x > 1200) {
-            this.destroy()
-        }
+        if (this.game.rnd.between(0, 10) < 8) { this.rain() }
+        if (this.x > 1200) { this.destroy() }
     }
 
     rain() {
-        let width = 250 * this._scale
-        let x = this.x + this.game.rnd.between(-width/2, +width/2)
+        let width = this.width * 0.8
+        let x = this.x + this._speed + this.game.rnd.between(-width/2, width/2)
         new Raindrop(this.game, x, this.y)
-    }
-
-    leftScreen() {
-
     }
 }
 

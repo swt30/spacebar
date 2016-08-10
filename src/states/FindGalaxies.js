@@ -45,7 +45,7 @@ class FindGalaxies extends Phaser.State {
         ]
 
         // Move the pointing once every second
-        this.physics.enable(this.pointing, Phaser.Physics.ARCADE)
+        this.physics.arcade.enable(this.pointing)
         this.pointing.timer = this.time.create()
         this.pointing.timer.loop(1000, this.changePointing, this)
         this.pointing.timer.start()

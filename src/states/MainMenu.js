@@ -32,7 +32,11 @@ class MainMenu extends Phaser.State {
     }
 
     thatHadBetterBeSpacebar(key) {
-        if (key.code !== "Space") {
+        console.log(key.code)
+        if (key.code !== "Space"
+            && key.code !== "F5"
+            && key.code !== "F11"
+            && key.code !== "F12") {
             let text = new BigMessage(this.game, "NO, PRESS\nSPACE!")
             this.buzz.play()
         }

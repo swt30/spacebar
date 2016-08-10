@@ -9,7 +9,7 @@ class WriteAProposal extends Phaser.State {
         this.proposalText = [
             "Multiple stellar populations at the centimetre-per-second level",
             "",
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "Obtaining a stable transiting planet plays a crucial role in the scatter and evolution of mass distribution. In this paper, we extend the description for the distribution of the dark matter (DM) time scale and measure the separation between interferometric, full-polarisation observations. We first provide an overview of sub-Saturns (0.18MJ < Mp < 0.3MJ) and super-Neptunes (0.05MJ < Mp < 0.18MJ). This approach is unable to describe haloes with larger spin or with fewer filaments."
         ]
 
         // load in first line of text
